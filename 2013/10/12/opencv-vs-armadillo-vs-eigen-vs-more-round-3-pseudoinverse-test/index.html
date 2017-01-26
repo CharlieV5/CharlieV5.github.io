@@ -1,0 +1,155 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="Just follow your own way"><title>[repost]OpenCV vs. Armadillo vs. Eigen vs. more! Round 3: pseudoinverse test | Charlie's</title><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/5.0.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.0/grids-responsive-min.css"><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">[repost]OpenCV vs. Armadillo vs. Eigen vs. more! Round 3: pseudoinverse test</h1><a id="logo" href="/.">Charlie's</a><p class="description">Just follow your own way</p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div></div><div id="layout" class="pure-g"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">[repost]OpenCV vs. Armadillo vs. Eigen vs. more! Round 3: pseudoinverse test</h1><div class="post-meta">Oct 12, 2013<span> | </span><span class="category"><a href="/categories/research/">research</a></span><script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> Hits</span></span></div><div class="post-content"><p><a href="http://nghiaho.com/?p=1726" target="_blank" rel="external">http://nghiaho.com/?p=1726</a></p>
+<p>Okay, the title of this post is getting longer and sillier, but this is the 3rd continuation of my last two post on comparing different libraries for everyday matrix operations. The last two posts compared basic operations such as multiplication, transposition, inversion etc. etc. in isolation, which is probably not a good reflection of real life usage. So I decided to come up with a new test that would combine different matrix operations together. I chose the pseudoinverse because it is something I use every now and then and it combines multiplication, transposition and inversion, which seems like a good test.</p>
+<p>For benchmarking I’m going to be solving the following over determined linear system:</p>
+<p><img src="http://s.wordpress.com/latex.php?latex=AX%20%3D%20B%20&amp;bg=ffffff&amp;fg=000000&amp;s=0" alt="AX = B " title="AX = B "></p>
+<p>and solve for X using</p>
+<p><img src="http://s.wordpress.com/latex.php?latex=X%20%3D%20%5Cleft%28A%5ETA%5Cright%29%5E%7B-1%7DA%5E%7BT%7DB%20&amp;bg=ffffff&amp;fg=000000&amp;s=0" alt="X = left(A^TAright)^{-1}A^{T}B " title="X = left(A^TAright)^{-1}A^{T}B "></p>
+<p>A is a NxM matrix, where N is much larger than M. I’ll be using N=1,000,000 data points and M (dimensions of the data) varying from 2 to 16.</p>
+<p>B is a Nx1 matrix.</p>
+<p>The matrix values will be randomly generated from 0 to 1 with uniform noise of [-1,1] added to B. They values are kept to a small range to avoid any significant numerical problems that can come about doing the pseudoinverse this way, not that I care too much for this benchmark. Each test is performed for 10 iterations, but not averaged out since I’m not interested in absolute time but relative to the other libraries.</p>
+<p>Just to make the benchmark more interesting I’ve added GSL and OpenBLAS to the test, since they were just an apt-get away on Ubuntu.</p>
+<h1 id="Results"><a href="#Results" class="headerlink" title="Results"></a>Results</h1><p>The following libraries were used</p>
+<ul>
+<li>OpenCV 2.4.3 (compiled from source)</li>
+<li>Eigen 3.1.2 (C++ headers from website)</li>
+<li>Armadillo 3.4.4 (compiled from source)</li>
+<li>GSL 1.15 (Ubuntu 12.10 package)</li>
+<li>OpenBLAS 1.13 (Ubuntu 12.10 package)</li>
+<li>Atlas 3.8.4 (Ubuntu 12.10 package)<br>My laptop has an Intel i7 1.60GHz with 6GB of RAM.</li>
+</ul>
+<p>All values reported are in milliseconds. Each psuedoinverse test is performed 10 times but <strong>NOT</strong>averaged out. Lower is better. Just as a reminder each test is dealing with 1,000,000 data points of varying dimensions.</p>
+<p><table border="0" cellspacing="0"><colgroup width="166"></colgroup><colgroup span="8" width="59"></colgroup></table></p>
+<p><tbody></tbody></p>
+<p><tr></tr></p>
+<p><td align="LEFT" height="16"></td></p>
+<p><td align="RIGHT">2</td></p>
+<p><td align="RIGHT">3</td></p>
+<p><td align="RIGHT">4</td></p>
+<p><td align="RIGHT">5</td></p>
+<p><td align="RIGHT">6</td></p>
+<p><td align="RIGHT">7</td></p>
+<p><td align="RIGHT">8</td></p>
+<p><td align="RIGHT">9</td><br></p>
+<p><tr></tr></p>
+<p><td align="LEFT" height="16">OpenCV</td></p>
+<p><td align="RIGHT">169.619</td></p>
+<p><td align="RIGHT">321.204</td></p>
+<p><td align="RIGHT">376.3</td></p>
+<p><td align="RIGHT">610.043</td></p>
+<p><td align="RIGHT">873.379</td></p>
+<p><td align="RIGHT">1185.82</td></p>
+<p><td align="RIGHT">1194.12</td></p>
+<p><td align="RIGHT">1569.16</td><br></p>
+<p><tr></tr></p>
+<p><td align="LEFT" height="16">Eigen</td></p>
+<p><td align="RIGHT">152.159</td></p>
+<p><td align="RIGHT">258.069</td></p>
+<p><td align="RIGHT">253.844</td></p>
+<p><td align="RIGHT">371.627</td></p>
+<p><td align="RIGHT">423.474</td></p>
+<p><td align="RIGHT">577.065</td></p>
+<p><td align="RIGHT">555.305</td></p>
+<p><td align="RIGHT">744.016</td><br></p>
+<p><tr></tr></p>
+<p><td align="LEFT" height="16">Armadillo +  Atlas</td></p>
+<p><td align="RIGHT">162.332</td></p>
+<p><td align="RIGHT">184.834</td></p>
+<p><td align="RIGHT">273.822</td></p>
+<p><td align="RIGHT">396.629</td></p>
+<p><td align="RIGHT">528.831</td></p>
+<p><td align="RIGHT">706.238</td></p>
+<p><td align="RIGHT">848.51</td></p>
+<p><td align="RIGHT">1088.47</td><br></p>
+<p><tr></tr></p>
+<p><td align="LEFT" height="16">Armadillo + OpenBLAS</td></p>
+<p><td align="RIGHT">79.803</td></p>
+<p><td align="RIGHT">118.718</td></p>
+<p><td align="RIGHT">147.714</td></p>
+<p><td align="RIGHT">298.839</td></p>
+<p><td align="RIGHT">372.235</td></p>
+<p><td align="RIGHT">484.864</td></p>
+<p><td align="RIGHT">411.337</td></p>
+<p><td align="RIGHT">507.84</td><br></p>
+<p><tr></tr></p>
+<p><td align="LEFT" height="16">GSL</td></p>
+<p><td align="RIGHT">507.052</td></p>
+<p><td align="RIGHT">787.429</td></p>
+<p><td align="RIGHT">1102.07</td></p>
+<p><td align="RIGHT">1476.67</td></p>
+<p><td align="RIGHT">1866.33</td></p>
+<p><td align="RIGHT">2321.66</td></p>
+<p><td align="RIGHT">2831.36</td></p>
+<p><td align="RIGHT">3237.67</td><br><br><br></p>
+<p><table border="0" cellspacing="0"><colgroup width="166"></colgroup><colgroup span="7" width="59"></colgroup></table></p>
+<p><tbody></tbody></p>
+<p><tr></tr></p>
+<p><td align="LEFT" height="16"></td></p>
+<p><td align="RIGHT">10</td></p>
+<p><td align="RIGHT">11</td></p>
+<p><td align="RIGHT">12</td></p>
+<p><td align="RIGHT">13</td></p>
+<p><td align="RIGHT">14</td></p>
+<p><td align="RIGHT">15</td></p>
+<p><td align="RIGHT">16</td><br></p>
+<p><tr></tr></p>
+<p><td align="LEFT" height="16">OpenCV</td></p>
+<p><td align="RIGHT">1965.95</td></p>
+<p><td align="RIGHT">2539.57</td></p>
+<p><td align="RIGHT">2495.63</td></p>
+<p><td align="RIGHT">2909.9</td></p>
+<p><td align="RIGHT">3518.22</td></p>
+<p><td align="RIGHT">4023.67</td></p>
+<p><td align="RIGHT">4064.92</td><br></p>
+<p><tr></tr></p>
+<p><td align="LEFT" height="16">Eigen</td></p>
+<p><td align="RIGHT">814.683</td></p>
+<p><td align="RIGHT">1035.96</td></p>
+<p><td align="RIGHT">993.226</td></p>
+<p><td align="RIGHT">1254.8</td></p>
+<p><td align="RIGHT">1362.02</td></p>
+<p><td align="RIGHT">1632.31</td></p>
+<p><td align="RIGHT">1615.69</td><br></p>
+<p><tr></tr></p>
+<p><td align="LEFT" height="16">Armadillo + Atlas</td></p>
+<p><td align="RIGHT">1297.01</td></p>
+<p><td align="RIGHT">1519.04</td></p>
+<p><td align="RIGHT">1792.74</td></p>
+<p><td align="RIGHT">2064.77</td></p>
+<p><td align="RIGHT">1438.16</td></p>
+<p><td align="RIGHT">1720.64</td></p>
+<p><td align="RIGHT">1906.79</td><br></p>
+<p><tr></tr></p>
+<p><td align="LEFT" height="16">Armadillo + OpenBLAS</td></p>
+<p><td align="RIGHT">534.947</td></p>
+<p><td align="RIGHT">581.294</td></p>
+<p><td align="RIGHT">639.175</td></p>
+<p><td align="RIGHT">772.382</td></p>
+<p><td align="RIGHT">824.971</td></p>
+<p><td align="RIGHT">825.79</td></p>
+<p><td align="RIGHT">893.771</td><br></p>
+<p><tr></tr></p>
+<p><td align="LEFT" height="16">GSL</td></p>
+<p><td align="RIGHT">3778.44</td></p>
+<p><td align="RIGHT">4427.47</td></p>
+<p><td align="RIGHT">4917.54</td></p>
+<p><td align="RIGHT">6037.29</td></p>
+<p><td align="RIGHT">6303.08</td></p>
+<p><td align="RIGHT">7187.5</td></p>
+<p><td align="RIGHT">7280.27</td><br><br><br><br>Ranking from best to worse</p>
+<ol>
+<li><strong>Armadillo + OpenBLAS</strong></li>
+<li>Eigen</li>
+<li>Armadillo + Atlas (no multi-core support out of the box???)</li>
+<li>OpenCV</li>
+<li>GSL<br>All I can say is, holly smokes Batman! Armadillo + OpenBLAS wins out for every single dimension!  Last is GSL, okay no surprise there for me. It never boasted being the fastest car on the track.</li>
+</ol>
+<p>The cool thing about Armadillo is switching the BLAS engine only requires a different library to be linked, no recompilation of Armadillo. What is surprising is the Atlas library doesn’t seem to support multi-core by default. I’m probably not doing it right. Maybe I’m missing an environmental variable setting?</p>
+<p>OpenBLAS is based on GotoBLAS and is actually a ‘made in China’ product, except this time I don’t get to make any jokes about the quality. It is fast because it takes advantage of multi-core CPU, while the others appear to only use 1 CPU core.</p>
+<p>I’m rather sad OpenCV is not that fast since I use it heavily for computer vision tasks. My compiled version actually uses Eigen, but that doesn’t explain why it’s slower than Eigen! Back in the old days OpenCV used to use BLAS/LAPACK, something they might need to consider bringing back.</p>
+<h1 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h1><p><a href="http://nghiaho.com/uploads/code/test_matrix_pseudoinverse.cpp" target="_blank" rel="external">test_matrix_pseudoinverse.cpp</a> (right click save as)</p>
+<p>Edit the code to #define in the libraries you want to test. Make sure you don’t turn on Armadillo + GSL, because they have conflicting enums. Instructions for compiling is at the top of the cpp file, but here it is again for reference.</p>
+<p>To compile using ATLAS:</p>
+<p>g++ test_matrix_pseudoinverse.cpp -o test_matrix_pseudoinverse -L/usr/lib/atlas-base -L/usr/lib/openblas-base -lopencv_core -larmadillo -lgomp -fopenmp -lcblas -llapack_atlas -lgsl -lgslcblas -march=native -O3 -DARMA_NO_DEBUG -DNDEBUG -DHAVE_INLINE -DGSL_RANGE_CHECK_OFF</p>
+<p>To compile with OpenBLAS:</p>
+<p>g++ test_matrix_pseudoinverse.cpp -o test_matrix_pseudoinverse -L/usr/lib/atlas-base -L/usr/lib/openblas-base -lopencv_core -larmadillo -lgomp -fopenmp -lopenblas -llapack_atlas -lgsl -lgslcblas -march=native -O3 -DARMA_NO_DEBUG -DNDEBUG -DHAVE_INLINE -DGSL_RANGE_CHECK_OFF</p>
+</div><script type="text/javascript" src="/js/share.js?v=0.0.0" async></script><a data-url="http://yoursite.com/2013/10/12/opencv-vs-armadillo-vs-eigen-vs-more-round-3-pseudoinverse-test/" data-id="ciyej1i3j000bfwpyfa00ippa" class="article-share-link">分享到</a><div class="tags"></div><div class="post-nav"><a href="/2013/10/12/some_matrix_library/" class="pre">一些矩阵运算的库</a><a href="/2013/10/08/product-secret/" class="next">[转]好产品的秘密</a></div></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><form action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank" class="search-form"><input type="text" name="q" maxlength="20" placeholder="Search"/><input type="hidden" name="sitesearch" value="http://yoursite.com"/></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/diary/">diary</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/research/">research</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/skills/">skills</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/矩阵/" style="font-size: 15px;">矩阵</a> <a href="/tags/Eigen/" style="font-size: 15px;">Eigen</a> <a href="/tags/社交网络/" style="font-size: 15px;">社交网络</a> <a href="/tags/网络/" style="font-size: 15px;">网络</a> <a href="/tags/WordPress/" style="font-size: 15px;">WordPress</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最新文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2014/06/06/some_image_processing_software/">一些图像处理软件</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/04/02/ceres-solver-google-maps-street-view/">Ceres-Solver--Google街景中用到的开源库</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/02/19/e8bdace588abe5868de5a496e58c96e4bda0e79a84e7949fe6b4bb/">[转]别再外化你的生活</a></li><li class="post-list-item"><a class="post-list-link" href="/2013/10/12/some_matrix_library/">一些矩阵运算的库</a></li><li class="post-list-item"><a class="post-list-link" href="/2013/10/12/opencv-vs-armadillo-vs-eigen-vs-more-round-3-pseudoinverse-test/">[repost]OpenCV vs. Armadillo vs. Eigen vs. more! Round 3: pseudoinverse test</a></li><li class="post-list-item"><a class="post-list-link" href="/2013/10/08/product-secret/">[转]好产品的秘密</a></li><li class="post-list-item"><a class="post-list-link" href="/2012/11/08/cpp-matrix-eigen/">【转】C++矩阵处理工具——Eigen</a></li><li class="post-list-item"><a class="post-list-link" href="/2012/11/08/insert-music-for-wordpress/">【整理】如何给WordPress插入背景音乐</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="http://www.example1.com/" title="site-name1" target="_blank">site-name1</a><ul></ul><a href="http://www.example2.com/" title="site-name2" target="_blank">site-name2</a><ul></ul><a href="http://www.example3.com/" title="site-name3" target="_blank">site-name3</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">© <a href="/." rel="nofollow">Charlie's.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a id="rocket" href="#top" class="show"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.pack.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="/css/jquery.fancybox.css?v=0.0.0"><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>
