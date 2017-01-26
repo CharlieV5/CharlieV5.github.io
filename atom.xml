@@ -1,0 +1,659 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Charlie&#39;s</title>
+  <subtitle>Just follow your own way</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2014-07-24T15:56:27.507Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>Charlie</name>
+    <email>CharlieV5@qq.com</email>
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>一些图像处理软件</title>
+    <link href="http://yoursite.com/2014/06/06/some_image_processing_software/"/>
+    <id>http://yoursite.com/2014/06/06/some_image_processing_software/</id>
+    <published>2014-06-06T03:36:08.000Z</published>
+    <updated>2014-07-24T15:56:27.507Z</updated>
+    
+    <content type="html"><![CDATA[<p>1. Shotwell</p>
+<p><a href="https://wiki.gnome.org/Apps/Shotwell" target="_blank" rel="external">https://wiki.gnome.org/Apps/Shotwell</a></p>
+<p>for windows：<a href="http://shotwell.software.informer.com/" target="_blank" rel="external">http://shotwell.software.informer.com/</a></p>
+<p>2. F-Spot</p>
+<p><a href="http://f-spot.org/" target="_blank" rel="external">http://f-spot.org/</a></p>
+<p>3.Gimp</p>
+<p><a href="http://www.gimp.org/" target="_blank" rel="external">http://www.gimp.org/</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;1. Shotwell&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://wiki.gnome.org/Apps/Shotwell&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://wiki.gnome.org/Apps/Shotwell&lt;/a&gt;
+    
+    </summary>
+    
+      <category term="research" scheme="http://yoursite.com/categories/research/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Ceres-Solver--Google街景中用到的开源库</title>
+    <link href="http://yoursite.com/2014/04/02/ceres-solver-google-maps-street-view/"/>
+    <id>http://yoursite.com/2014/04/02/ceres-solver-google-maps-street-view/</id>
+    <published>2014-04-02T07:46:47.000Z</published>
+    <updated>2014-07-24T15:56:27.507Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="http://google-opensource.blogspot.ca/2012/05/introducing-ceres-solver-nonlinear.html" target="_blank" rel="external">http://google-opensource.blogspot.ca/2012/05/introducing-ceres-solver-nonlinear.html</a></p>
+<p>在科学和工程的广大领域，从统计学中复杂的曲线拟合 ，到计算机视觉中从照片构建 3D 模型，都存在非线性最小二乘问题（<a href="http://en.wikipedia.org/wiki/Non-linear_least_squares" target="_blank" rel="external">non-linear least squares</a>）。今日，我们非常高兴宣布发布我们在Google所使用的解决方案。</p>
+<p><a href="http://code.google.com/p/ceres-solver/" target="_blank" rel="external">Ceres Solver</a> 是一个可移植的 C++ 库，可用来建模并解决大型复杂的非线性最小二乘问题。它的显著特性如下：</p>
+<p>• A simple, expressive API | 简单易读的 API</p>
+<p>• Automatic differentiation | 自动微分</p>
+<p>• Robust loss functions | 稳健的损失函数</p>
+<p>• Local parameterizations | 局部参数</p>
+<p>• A threaded Jacobian evaluators and linear solvers</p>
+<p>• Dense QR factorization (using <a href="http://eigen.tuxfamily.org/index.php?title=Main_Page" title="Main_Page" target="_blank" rel="external">Eigen</a>) for small problems</p>
+<p>• Sparse Cholesky factorization (using <a href="http://www.cise.ufl.edu/research/sparse/SuiteSparse/" target="_blank" rel="external">SuiteSparse</a>) for large sparse problems</p>
+<p>• Specialized solvers for problems in <a href="http://en.wikipedia.org/wiki/Bundle_adjustment" target="_blank" rel="external">3D computer vision</a>  | 三维计算机视觉中的问题的特定解决方案</p>
+<p>• A liberal license (New BSD)</p>
+<p>• Scales from servers to cell phones.</p>
+<p>&nbsp;</p>
+<p>在Google，我们使用 Ceres Solver 来估测街景车、飞机和卫星的姿态；给 <a href="http://google-latlong.blogspot.de/2012/04/visit-global-landmarks-with-photo-tours.html" target="_blank" rel="external">PhotoTours</a> 建立 3D 模型；估测卫星图像传感器的特征，等。比如：下面这个视频展示了三个实例（<a href="http://www.youtube.com/watch?v=z00ORu4bU-A" target="_blank" rel="external">Youtube</a>），Ceres Solver 融合从安装在街景车上的传感器发送的数据，估测街景车自身在地球表面的正确位置和方向。</p>
+<p><a href="http://jbcdn2.b0.upaiyun.com/2012/05/Street-View-sensor-fusion-with-Ceres-Solver.jpg" title="Street View sensor fusion with Ceres Solver" target="_blank" rel="external"><img src="http://jbcdn2.b0.upaiyun.com/2012/05/Street-View-sensor-fusion-with-Ceres-Solver.jpg" alt="Street View sensor fusion with Ceres Solver" title="Street View sensor fusion with Ceres Solver"></a></p>
+<p>我们希望你会<a href="http://code.google.com/p/ceres-solver/" target="_blank" rel="external">下载Ceres Solver</a>，解决一些问题，并在<a href="https://groups.google.com/forum/?fromgroups#!forum/ceres-solver" target="_blank" rel="external">邮件列表</a>中分享你的经验。</p>
+<p><em>By Sameer Agarwal &amp; Keir Mierle, Geo Software Engineers</em></p>
+<p>&nbsp;</p>
+<p>原文：<a href="http://google-opensource.blogspot.ca/2012/05/introducing-ceres-solver-nonlinear.html" target="_blank" rel="external">Google OpenSource</a>（需梯子）   编译：伯乐在线 – <a href="http://blog.jobbole.com/18584/" target="_blank" rel="external">黄利民</a></p>
+<p><a href="http://blog.jobbole.com/18584/" target="_blank" rel="external">http://blog.jobbole.com/18584/</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;a href=&quot;http://google-opensource.blogspot.ca/2012/05/introducing-ceres-solver-nonlinear.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://goog
+    
+    </summary>
+    
+      <category term="research" scheme="http://yoursite.com/categories/research/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>[转]别再外化你的生活</title>
+    <link href="http://yoursite.com/2014/02/19/e8bdace588abe5868de5a496e58c96e4bda0e79a84e7949fe6b4bb/"/>
+    <id>http://yoursite.com/2014/02/19/e8bdace588abe5868de5a496e58c96e4bda0e79a84e7949fe6b4bb/</id>
+    <published>2014-02-19T07:41:30.000Z</published>
+    <updated>2014-07-24T15:56:27.507Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近伦敦Barbican博物馆举办了一个叫“雨室”的展览：一个房间，水从天花板各处洒下来，但进入里面的游客不会被淋湿，因为天花板上面会有传感器检测到人所站的位置，关掉他们正头顶的龙头。这是项有趣而聪明的交互艺术，所以很受欢迎。这个展览开放的那会儿，我在Twitter上时常见到人们站在雨室中的照片，标题通常是“雨室@Barbican!”，当然，还有能证明他们确实到过那的位置信息。</p>
+<p>这些看起来都长得差不多的照片让我开始想，关于这个体验他们真正想表达的是什么？显然，他们不是在同关注者分享什么奇珍异宝，也不是想要给出对这艺术作品的独特见解。说起来，他们只是觉得他们应该分享，不是那种与亲近的人分享快乐时光的那种分享，而是“告诉世界我在做一件事情”的那种分享。</p>
+<p>我刚刚在新加坡呆了一个月。最初的几个星期，我总觉着得要让家里那边的人知道我在干嘛，就得多拍点照来证明，比如那些吃过的异国佳肴和看到的风景，如果不把它们数字化存储到犹他州的某个数据中心，好像它们就会变得无关紧要。我发现我拍照纯粹是为了表达我在欢度美好时光，这样我在伦敦的朋友坐巴士回家的时候就可以在他们的手机上看到了。</p>
+<p>想要同你关心的人分享体验是很自然的，如同传统的明信片所传达的意思，“要是你也在这就好了。”但我总觉得我们之所以要在社交网络上分享似乎却有着更诡异的原因。其实那根本不是分享，更像是“吹牛”。每次我们登陆Facebook或者Twitter, 总能看见大家似乎都过的挺开心。这当然不是真实的生活，只是人们通常只会愿意贴出“好东西”，而避而不谈那些无聊、糟糕或是深沉的玩意。撇开浮夸不谈，这种偏好会使得我们下意识里感觉，好像其他人都过得比我们好！ 我们试图通过精心修饰自己的生活，显得我们一直过的很开心，在做着重要的事情，以此来攀比。久而久之甚至形成了条件反射：每当有什么好事发生的时候，我们一定得广播给越多人知道越好。</p>
+<p>网上有很多《Facebook会给你带来危害因为XXX》的文章，但我试图谈的是一种使用几乎任何网络服务都会产生的心态。这是这个时代的诅咒。我们拿着那些数码工具，把身边这样或那样的数据一股脑抓下来，然后实时传输到亲戚、朋友或是过去八年里认识的每一个人那里。我们对现实的感觉变的越来越弱：吃饭时，我们更关心Instgram哪个滤镜效果更好看，而不是面前的菜到底好不好吃。我们仿佛变成了好奇号火星探测车，在周边环境里转来转去，盲目地上传着数据，而失去了探求意义的能力或愿望。最终，我们外化了我们整个生活。</p>
+<p>想让世界知道你在做什么其实不是什么大错，但是当你机械的把你的生活张贴到网上时，你变得不再像是一个活生生的人，而更像一个棱镜，把周遭的光影反射到“云端”，同其他人的光影放在一起。你变成了操作手机的手指。</p>
+<p>需要记住的是，当你把体验分享到网上时，它们并没有变得更好；相反，你会更容易受到干扰，因为你把更多的精力花在怎样润色它们，以给他人更好的印象。你对于某件事物的体验可能与其他人的相似，但它更应该是独特而不可复制的。所以，学着内化你的体验。写点超过140个字符的文章描述你的体验(甚至用真实的纸笔)。画一幅画描绘你的体验。跟你的朋友面对面谈论你的体验，说说它给你带来的感觉。</p>
+<p>当你不再用社交网络上关注你的人的视角来看待事物时，这些体验才真正变成你自己的。你解脱了自己，不再有不必要的负担，别总想着让别人知道你在干什么。你可以让你的体验变得更有意义，因为是你本人在那里，是你看到了那些画面，听到了那些声音，闻到了那些气味，而不是因为透过手机里半英寸不到的镜头拍下了照片。</p>
+<p>From <a href="http://select.yeeyan.org/view/1342/355700" target="_blank" rel="external">http://select.yeeyan.org/view/1342/355700</a></p>
+<p>&nbsp;</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近伦敦Barbican博物馆举办了一个叫“雨室”的展览：一个房间，水从天花板各处洒下来，但进入里面的游客不会被淋湿，因为天花板上面会有传感器检测到人所站的位置，关掉他们正头顶的龙头。这是项有趣而聪明的交互艺术，所以很受欢迎。这个展览开放的那会儿，我在Twitter上时常见
+    
+    </summary>
+    
+      <category term="diary" scheme="http://yoursite.com/categories/diary/"/>
+    
+    
+      <category term="社交网络" scheme="http://yoursite.com/tags/%E7%A4%BE%E4%BA%A4%E7%BD%91%E7%BB%9C/"/>
+    
+      <category term="网络" scheme="http://yoursite.com/tags/%E7%BD%91%E7%BB%9C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>一些矩阵运算的库</title>
+    <link href="http://yoursite.com/2013/10/12/some_matrix_library/"/>
+    <id>http://yoursite.com/2013/10/12/some_matrix_library/</id>
+    <published>2013-10-12T13:09:29.000Z</published>
+    <updated>2014-07-24T15:56:27.507Z</updated>
+    
+    <content type="html"><![CDATA[<p>opencv：<a href="http://docs.opencv.org/modules/core/doc/operations_on_arrays.html?#invert" target="_blank" rel="external">http://docs.opencv.org/modules/core/doc/operations_on_arrays.html?#invert</a> （矩阵求逆、求伪逆）</p>
+<p>LAPACK / CLAPACK：<a href="http://icl.cs.utk.edu/lapack-for-windows/index.html" target="_blank" rel="external">http://icl.cs.utk.edu/lapack-for-windows/index.html</a> ；<a href="http://www.netlib.org/clapack/" target="_blank" rel="external">http://www.netlib.org/clapack/</a></p>
+<p>Eigen：<a href="http://eigen.tuxfamily.org/index.php?title=Main_Page" title="Main_Page" target="_blank" rel="external">http://eigen.tuxfamily.org/index.php?title=Main_Page</a></p>
+<p>Eigen在MSVC中的易用性较高，目前没有直接求伪逆的函数</p>
+<p>关于伪逆：<a href="https://inst.eecs.berkeley.edu/~ee127a/book/login/def_pseudo_inv.html" target="_blank" rel="external">https://inst.eecs.berkeley.edu/~ee127a/book/login/def_pseudo_inv.html</a></p>
+<p>&nbsp;</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;opencv：&lt;a href=&quot;http://docs.opencv.org/modules/core/doc/operations_on_arrays.html?#invert&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://docs.ope
+    
+    </summary>
+    
+      <category term="diary" scheme="http://yoursite.com/categories/diary/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>[repost]OpenCV vs. Armadillo vs. Eigen vs. more! Round 3: pseudoinverse test</title>
+    <link href="http://yoursite.com/2013/10/12/opencv-vs-armadillo-vs-eigen-vs-more-round-3-pseudoinverse-test/"/>
+    <id>http://yoursite.com/2013/10/12/opencv-vs-armadillo-vs-eigen-vs-more-round-3-pseudoinverse-test/</id>
+    <published>2013-10-12T12:44:03.000Z</published>
+    <updated>2014-07-24T15:56:27.505Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="http://nghiaho.com/?p=1726" target="_blank" rel="external">http://nghiaho.com/?p=1726</a></p>
+<p>Okay, the title of this post is getting longer and sillier, but this is the 3rd continuation of my last two post on comparing different libraries for everyday matrix operations. The last two posts compared basic operations such as multiplication, transposition, inversion etc. etc. in isolation, which is probably not a good reflection of real life usage. So I decided to come up with a new test that would combine different matrix operations together. I chose the pseudoinverse because it is something I use every now and then and it combines multiplication, transposition and inversion, which seems like a good test.</p>
+<p>For benchmarking I’m going to be solving the following over determined linear system:</p>
+<p><img src="http://s.wordpress.com/latex.php?latex=AX%20%3D%20B%20&amp;bg=ffffff&amp;fg=000000&amp;s=0" alt="AX = B " title="AX = B "></p>
+<p>and solve for X using</p>
+<p><img src="http://s.wordpress.com/latex.php?latex=X%20%3D%20%5Cleft%28A%5ETA%5Cright%29%5E%7B-1%7DA%5E%7BT%7DB%20&amp;bg=ffffff&amp;fg=000000&amp;s=0" alt="X = left(A^TAright)^{-1}A^{T}B " title="X = left(A^TAright)^{-1}A^{T}B "></p>
+<p>A is a NxM matrix, where N is much larger than M. I’ll be using N=1,000,000 data points and M (dimensions of the data) varying from 2 to 16.</p>
+<p>B is a Nx1 matrix.</p>
+<p>The matrix values will be randomly generated from 0 to 1 with uniform noise of [-1,1] added to B. They values are kept to a small range to avoid any significant numerical problems that can come about doing the pseudoinverse this way, not that I care too much for this benchmark. Each test is performed for 10 iterations, but not averaged out since I’m not interested in absolute time but relative to the other libraries.</p>
+<p>Just to make the benchmark more interesting I’ve added GSL and OpenBLAS to the test, since they were just an apt-get away on Ubuntu.</p>
+<h1 id="Results"><a href="#Results" class="headerlink" title="Results"></a>Results</h1><p>The following libraries were used</p>
+<ul>
+<li>OpenCV 2.4.3 (compiled from source)</li>
+<li>Eigen 3.1.2 (C++ headers from website)</li>
+<li>Armadillo 3.4.4 (compiled from source)</li>
+<li>GSL 1.15 (Ubuntu 12.10 package)</li>
+<li>OpenBLAS 1.13 (Ubuntu 12.10 package)</li>
+<li>Atlas 3.8.4 (Ubuntu 12.10 package)<br>My laptop has an Intel i7 1.60GHz with 6GB of RAM.</li>
+</ul>
+<p>All values reported are in milliseconds. Each psuedoinverse test is performed 10 times but <strong>NOT</strong>averaged out. Lower is better. Just as a reminder each test is dealing with 1,000,000 data points of varying dimensions.</p>
+<p><table border="0" cellspacing="0"><colgroup width="166"></colgroup><colgroup span="8" width="59"></colgroup></table></p>
+<p><tbody></tbody></p>
+<p><tr></tr></p>
+<p><td align="LEFT" height="16"></td></p>
+<p><td align="RIGHT">2</td></p>
+<p><td align="RIGHT">3</td></p>
+<p><td align="RIGHT">4</td></p>
+<p><td align="RIGHT">5</td></p>
+<p><td align="RIGHT">6</td></p>
+<p><td align="RIGHT">7</td></p>
+<p><td align="RIGHT">8</td></p>
+<p><td align="RIGHT">9</td><br></p>
+<p><tr></tr></p>
+<p><td align="LEFT" height="16">OpenCV</td></p>
+<p><td align="RIGHT">169.619</td></p>
+<p><td align="RIGHT">321.204</td></p>
+<p><td align="RIGHT">376.3</td></p>
+<p><td align="RIGHT">610.043</td></p>
+<p><td align="RIGHT">873.379</td></p>
+<p><td align="RIGHT">1185.82</td></p>
+<p><td align="RIGHT">1194.12</td></p>
+<p><td align="RIGHT">1569.16</td><br></p>
+<p><tr></tr></p>
+<p><td align="LEFT" height="16">Eigen</td></p>
+<p><td align="RIGHT">152.159</td></p>
+<p><td align="RIGHT">258.069</td></p>
+<p><td align="RIGHT">253.844</td></p>
+<p><td align="RIGHT">371.627</td></p>
+<p><td align="RIGHT">423.474</td></p>
+<p><td align="RIGHT">577.065</td></p>
+<p><td align="RIGHT">555.305</td></p>
+<p><td align="RIGHT">744.016</td><br></p>
+<p><tr></tr></p>
+<p><td align="LEFT" height="16">Armadillo +  Atlas</td></p>
+<p><td align="RIGHT">162.332</td></p>
+<p><td align="RIGHT">184.834</td></p>
+<p><td align="RIGHT">273.822</td></p>
+<p><td align="RIGHT">396.629</td></p>
+<p><td align="RIGHT">528.831</td></p>
+<p><td align="RIGHT">706.238</td></p>
+<p><td align="RIGHT">848.51</td></p>
+<p><td align="RIGHT">1088.47</td><br></p>
+<p><tr></tr></p>
+<p><td align="LEFT" height="16">Armadillo + OpenBLAS</td></p>
+<p><td align="RIGHT">79.803</td></p>
+<p><td align="RIGHT">118.718</td></p>
+<p><td align="RIGHT">147.714</td></p>
+<p><td align="RIGHT">298.839</td></p>
+<p><td align="RIGHT">372.235</td></p>
+<p><td align="RIGHT">484.864</td></p>
+<p><td align="RIGHT">411.337</td></p>
+<p><td align="RIGHT">507.84</td><br></p>
+<p><tr></tr></p>
+<p><td align="LEFT" height="16">GSL</td></p>
+<p><td align="RIGHT">507.052</td></p>
+<p><td align="RIGHT">787.429</td></p>
+<p><td align="RIGHT">1102.07</td></p>
+<p><td align="RIGHT">1476.67</td></p>
+<p><td align="RIGHT">1866.33</td></p>
+<p><td align="RIGHT">2321.66</td></p>
+<p><td align="RIGHT">2831.36</td></p>
+<p><td align="RIGHT">3237.67</td><br><br><br></p>
+<p><table border="0" cellspacing="0"><colgroup width="166"></colgroup><colgroup span="7" width="59"></colgroup></table></p>
+<p><tbody></tbody></p>
+<p><tr></tr></p>
+<p><td align="LEFT" height="16"></td></p>
+<p><td align="RIGHT">10</td></p>
+<p><td align="RIGHT">11</td></p>
+<p><td align="RIGHT">12</td></p>
+<p><td align="RIGHT">13</td></p>
+<p><td align="RIGHT">14</td></p>
+<p><td align="RIGHT">15</td></p>
+<p><td align="RIGHT">16</td><br></p>
+<p><tr></tr></p>
+<p><td align="LEFT" height="16">OpenCV</td></p>
+<p><td align="RIGHT">1965.95</td></p>
+<p><td align="RIGHT">2539.57</td></p>
+<p><td align="RIGHT">2495.63</td></p>
+<p><td align="RIGHT">2909.9</td></p>
+<p><td align="RIGHT">3518.22</td></p>
+<p><td align="RIGHT">4023.67</td></p>
+<p><td align="RIGHT">4064.92</td><br></p>
+<p><tr></tr></p>
+<p><td align="LEFT" height="16">Eigen</td></p>
+<p><td align="RIGHT">814.683</td></p>
+<p><td align="RIGHT">1035.96</td></p>
+<p><td align="RIGHT">993.226</td></p>
+<p><td align="RIGHT">1254.8</td></p>
+<p><td align="RIGHT">1362.02</td></p>
+<p><td align="RIGHT">1632.31</td></p>
+<p><td align="RIGHT">1615.69</td><br></p>
+<p><tr></tr></p>
+<p><td align="LEFT" height="16">Armadillo + Atlas</td></p>
+<p><td align="RIGHT">1297.01</td></p>
+<p><td align="RIGHT">1519.04</td></p>
+<p><td align="RIGHT">1792.74</td></p>
+<p><td align="RIGHT">2064.77</td></p>
+<p><td align="RIGHT">1438.16</td></p>
+<p><td align="RIGHT">1720.64</td></p>
+<p><td align="RIGHT">1906.79</td><br></p>
+<p><tr></tr></p>
+<p><td align="LEFT" height="16">Armadillo + OpenBLAS</td></p>
+<p><td align="RIGHT">534.947</td></p>
+<p><td align="RIGHT">581.294</td></p>
+<p><td align="RIGHT">639.175</td></p>
+<p><td align="RIGHT">772.382</td></p>
+<p><td align="RIGHT">824.971</td></p>
+<p><td align="RIGHT">825.79</td></p>
+<p><td align="RIGHT">893.771</td><br></p>
+<p><tr></tr></p>
+<p><td align="LEFT" height="16">GSL</td></p>
+<p><td align="RIGHT">3778.44</td></p>
+<p><td align="RIGHT">4427.47</td></p>
+<p><td align="RIGHT">4917.54</td></p>
+<p><td align="RIGHT">6037.29</td></p>
+<p><td align="RIGHT">6303.08</td></p>
+<p><td align="RIGHT">7187.5</td></p>
+<p><td align="RIGHT">7280.27</td><br><br><br><br>Ranking from best to worse</p>
+<ol>
+<li><strong>Armadillo + OpenBLAS</strong></li>
+<li>Eigen</li>
+<li>Armadillo + Atlas (no multi-core support out of the box???)</li>
+<li>OpenCV</li>
+<li>GSL<br>All I can say is, holly smokes Batman! Armadillo + OpenBLAS wins out for every single dimension!  Last is GSL, okay no surprise there for me. It never boasted being the fastest car on the track.</li>
+</ol>
+<p>The cool thing about Armadillo is switching the BLAS engine only requires a different library to be linked, no recompilation of Armadillo. What is surprising is the Atlas library doesn’t seem to support multi-core by default. I’m probably not doing it right. Maybe I’m missing an environmental variable setting?</p>
+<p>OpenBLAS is based on GotoBLAS and is actually a ‘made in China’ product, except this time I don’t get to make any jokes about the quality. It is fast because it takes advantage of multi-core CPU, while the others appear to only use 1 CPU core.</p>
+<p>I’m rather sad OpenCV is not that fast since I use it heavily for computer vision tasks. My compiled version actually uses Eigen, but that doesn’t explain why it’s slower than Eigen! Back in the old days OpenCV used to use BLAS/LAPACK, something they might need to consider bringing back.</p>
+<h1 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h1><p><a href="http://nghiaho.com/uploads/code/test_matrix_pseudoinverse.cpp" target="_blank" rel="external">test_matrix_pseudoinverse.cpp</a> (right click save as)</p>
+<p>Edit the code to #define in the libraries you want to test. Make sure you don’t turn on Armadillo + GSL, because they have conflicting enums. Instructions for compiling is at the top of the cpp file, but here it is again for reference.</p>
+<p>To compile using ATLAS:</p>
+<p>g++ test_matrix_pseudoinverse.cpp -o test_matrix_pseudoinverse -L/usr/lib/atlas-base -L/usr/lib/openblas-base -lopencv_core -larmadillo -lgomp -fopenmp -lcblas -llapack_atlas -lgsl -lgslcblas -march=native -O3 -DARMA_NO_DEBUG -DNDEBUG -DHAVE_INLINE -DGSL_RANGE_CHECK_OFF</p>
+<p>To compile with OpenBLAS:</p>
+<p>g++ test_matrix_pseudoinverse.cpp -o test_matrix_pseudoinverse -L/usr/lib/atlas-base -L/usr/lib/openblas-base -lopencv_core -larmadillo -lgomp -fopenmp -lopenblas -llapack_atlas -lgsl -lgslcblas -march=native -O3 -DARMA_NO_DEBUG -DNDEBUG -DHAVE_INLINE -DGSL_RANGE_CHECK_OFF</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;a href=&quot;http://nghiaho.com/?p=1726&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://nghiaho.com/?p=1726&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Okay, the title of this post is
+    
+    </summary>
+    
+      <category term="research" scheme="http://yoursite.com/categories/research/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>[转]好产品的秘密</title>
+    <link href="http://yoursite.com/2013/10/08/product-secret/"/>
+    <id>http://yoursite.com/2013/10/08/product-secret/</id>
+    <published>2013-10-08T12:22:19.000Z</published>
+    <updated>2014-07-24T15:56:27.484Z</updated>
+    
+    <content type="html"><![CDATA[<p>&nbsp;</p>
+<p>过年这几天休息在家看电影，重温了一遍《致命魔术》，剧情就不赘述了，但是两位主角在魔术Transported Man（瞬间移动）上各自的表演秘密让我颇有感悟。</p>
+<p>&nbsp;</p>
+<p>Borden的Transported Man秘密很简单，就是用的替身，只是这个替身是他的孪生兄弟，为了追求以假乱真时常互换身份生活，为了追求外表一致自残身体，甚至最后为了保守秘密害自己的妻子自杀。</p>
+<p>&nbsp;</p>
+<p>Borden对魔术的理解是自我牺牲，他认为“玩杂耍的人，他们靠掩盖一些简单，有时也是残酷的事实为生”。</p>
+<p>&nbsp;</p>
+<p>Angier一直窥视Borden的秘密希望赶超，虽然他也利用替身方法成功表演Transported Man，但仍然认为不会那么简单，因为总是没有Borden表演的那么完美，应该有什么秘密是自己不能识破的。最后借用科技的力量复制自己的副本，同时杀死被复制的本体，表演The Real Transported Man，获得了成功，这也成为他的秘密。</p>
+<p>&nbsp;</p>
+<p>Angier对魔术的理解是传统的三个步骤：“以虚代实”、“偷天换日”、“化腐朽为神奇”。他认为“真正的魔术师会创造出他的同行绞尽脑汁也想不出的新花样”。</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>换个角度，把Borden和Angier看做是两个创业者，在做同一个类型的产品，但是Borden的产品总是做得比Angier好一点，更受用户的喜爱。</p>
+<p>&nbsp;</p>
+<p>Angier固执的认为Borden在产品设计上有秘诀，千方百计的想搞清楚，但实际上没有什么秘诀，只是Borden在产品设计上的领悟比他高，在产品运营上的牺牲比他大而已，最后Angier用更大的牺牲获得了成功，只是已经走火入魔。</p>
+<p>&nbsp;</p>
+<p>其实在现实中也有很多这样看似复杂却简单的案例。</p>
+<p>&nbsp;</p>
+<p>边锋棋牌创业初期玩家稀少，经常凑不齐一桌，陶宁等四个创始人就每天开多台电脑24小时陪玩家打牌下棋聊天，为了让玩家有好的用户体验，降低流失率提高活跃度。可能换个创业者就会设计一套超级智能的自动陪打软件，但是再智能也替代不了真人，当然这样就不会有今天的边锋棋牌。</p>
+<p>&nbsp;</p>
+<p>扫描名片的软件很多，收费的免费的都有，我手机上就装了好几个，但现在常用的只有一款，识别度真的是相当高，百分之百啊！我一直好奇为什么能那么精确，后来朋友跟我说，这家是人工识别的。图片识别技术发展多年识别率提升很多，但不管怎么发展也到不了100%，当很多创业者想用技术提升那百分之零点几的时候，有人转换了思维。</p>
+<p>&nbsp;</p>
+<p>某理财应用上线初期拿不到QQ邮箱的API接口，就设计了软件模拟登陆获取用户信用卡账单，但碰到了登陆验证码，怎么办？创始人自己在电脑前一口气人工输入1万个！可能更多的创业者会去想如何通过程序破解验证码，绝对不会想到其实人工输入又何妨，也许你的破解程序还没研发出来，人家的应用已经占领排行榜第一了。</p>
+<p>&nbsp;</p>
+<p><a href="http://www.leiphone.com/s-good-product.html/snip20130212_1%e5%89%af%e6%9c%ac" target="_blank" rel="external"><img src="http://leiphone.qiniudn.com/uploads/08-5/-2/08-53-20-1-300x261.jpg" alt="Snip20130212_1副本"></a></p>
+<p>&nbsp;</p>
+<p>再比如说我的公众账号“ZTalk”，有细心的粉丝发现，每天的被添加自动回复和消息自动回复是带当日大事记的，问我怎么写的程序太智能了，我回答是我每天晚上11点到12点人工修改。我是一个做技术出身的产品经理，也习惯用技术手段去解决一些需求，比如自定义回复这个事情，我当然可以写个程序抓点数据组合下来做，但这样就缺了点个性、人性在里面，更何况能够坚持每天去修改，我想也是对自己的考验，对粉丝的尊重。</p>
+<p>&nbsp;</p>
+<p>创业者亦如此，同样的Idea，总觉得自己的产品比别人缺那么一点点，以为是对方有什么尖端技术，千方百计的去研究、寻找、打探、模仿和尝试，最后发现徒劳无功，或者误入歧途，因为根本不存在什么尖端技术，存在差距是对产品的个人领悟和付出不同。</p>
+<p>&nbsp;</p>
+<p>从计算机被发明以来，所有人都被灌输了科技可以解决一切问题，技术进步就能实现梦想，带领人类探索未知的秘密。</p>
+<p>&nbsp;</p>
+<p>但实际上有些很简单的事反而被我们搞复杂了，兜兜转转绕了一大圈，回归到本源真正的创造力是人，是我们的大脑，是我们的双手。那才是奇迹诞生的地方。</p>
+<p>&nbsp;</p>
+<p>The sacrifice… that’s the price of a good trick。</p>
+<p>&nbsp;</p>
+<p>自我牺牲才是精彩魔术的代价。</p>
+<p>&nbsp;</p>
+<p>微信搜索“ztalk”就可以关注我，主要提供互联网技术、产品、趋势观察报告，移动互联网创业、创新报道等。</p>
+<p>&nbsp;</p>
+<p>From  <a href="http://www.leiphone.com/s-good-product.html" target="_blank" rel="external">http://www.leiphone.com/s-good-product.html</a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;过年这几天休息在家看电影，重温了一遍《致命魔术》，剧情就不赘述了，但是两位主角在魔术Transported Man（瞬间移动）上各自的表演秘密让我颇有感悟。&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;Borden的Transported Man秘
+    
+    </summary>
+    
+      <category term="diary" scheme="http://yoursite.com/categories/diary/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>【转】C++矩阵处理工具——Eigen</title>
+    <link href="http://yoursite.com/2012/11/08/cpp-matrix-eigen/"/>
+    <id>http://yoursite.com/2012/11/08/cpp-matrix-eigen/</id>
+    <published>2012-11-08T04:31:55.000Z</published>
+    <updated>2014-09-03T15:23:57.034Z</updated>
+    
+    <content type="html"><![CDATA[<p>来自：<a href="http://blog.csdn.net/abcjennifer/article/details/7781936" target="_blank" rel="external">http://blog.csdn.net/abcjennifer/article/details/7781936</a></p>
+<p>最近和一些朋友讨论到了C++中数学工具的问题，以前总是很2地自己写矩阵运算，或者有时候在matlab里计算了一些数据再往C程序里倒，唉~想想那些年，我们白写的代码啊……人家早已封装好了！首先推荐几个可以在C++中调用的数学平台：eigen、bias、lapack、svd、<a href="http://www.openpr.org.cn/index.php/All/46-CMatrix-class/View-details.html" target="_blank" rel="external">CMatrix</a>，本文着重eigen做以讲解，希望对各位有所帮助。</p>
+<p>下面是本文主线，主要围绕下面几点进行讲解：</p>
+<hr>
+<p>Eigen是什么？</p>
+<p>Eigen3哪里下载？</p>
+<p>Eigen3的配置</p>
+<p>Eigen3 样例代码有没有？</p>
+<p>去哪里更深入学习？</p>
+<hr>
+<p>Eigen是什么？</p>
+<p>Eigen是C++中可以用来调用并进行矩阵计算的一个库，里面封装了一些<a href="http://eigen.tuxfamily.org/dox-2.0/annotated.html" target="_blank" rel="external">类</a>，需要的头文件和功能如下：</p>
+<p><img src="http://my.csdn.net/uploads/201207/24/1343132342_6136.jpg" alt=""></p>
+<p><a href="http://eigen.tuxfamily.org/dox/index.html" target="_blank" rel="external">Eigen的主页</a>上有一些更详细的Eigen介绍。</p>
+<p>&nbsp;</p>
+<p>Eigen3哪里下载？</p>
+<p><a href="http://download.csdn.net/detail/abcjennifer/4449957" target="_blank" rel="external">这里是</a>我下好的，<a href="http://eigen.tuxfamily.org/index.php?title=Main_Page#Download" title="Main_Page#Download" target="_blank" rel="external">这里</a>是官网主页，请自行下载，是个code包，不用安装。</p>
+<p>&nbsp;</p>
+<p>Eigen的配置</p>
+<p><img src="http://my.csdn.net/uploads/201207/24/1343133124_3315.jpg" alt=""></p>
+<p>直接上图了，附加包含目录那里填上你放Eigen文件夹的位置即可。</p>
+<p>&nbsp;</p>
+<p>Eigen的样例代码有没有？</p>
+<p>当然有，这篇文章重点就是这里！</p>
+<p>以下是我整理的一些常用操作，基本的矩阵运算就在下面了，算是个入门吧~主要分以下几部分：</p>
+<p><img src="http://my.csdn.net/uploads/201207/24/1343133892_6291.jpg" alt=""></p>
+<p>&nbsp;</p>
+<p>建议大家放到编译环境里去看，因为我这里有一些region的东西，编译器下更方便看~</p>
+<p>&nbsp;</p>
+<pre>#include &lt;iostream&gt;
+#include &lt;Eigen/Dense&gt;
+//using Eigen::MatrixXd;
+using namespace Eigen;
+using namespace Eigen::internal;
+using namespace Eigen::Architecture;
+using namespace std;
+int main()
+{  
+#pragma region one_d_object
+    cout &lt;&lt; "*******************1D-object****************" &lt;&lt; endl;
+    Vector4d v1;
+    v1<< 1,2,3,4;
+    cout &lt;&lt; "v1=n" &lt;&lt; v1 &lt;&lt; endl;
+&nbsp;
+    VectorXd v2(3);
+    v2 << 1,2,3;
+    cout << "v2=n" << v2 << endl;
+&nbsp;
+    Array4i v3;
+    v3 << 1,2,3,4;
+    cout << "v3=n" << v3 << endl;
+&nbsp;
+    ArrayXf v4(3);
+    v4 << 1,2,3;
+    cout << "v4=n" << v4 << endl;
+#pragma endregion
+&nbsp;
+#pragma region two_d_object
+    cout << "*******************2D-object****************" << endl;
+    //2D objects:
+    MatrixXd m(2,2);
+&nbsp;
+    //method 1
+    m(0,0) = 3;
+    m(1,0) = 2.5;
+    m(0,1) = -1;
+    m(1,1) = m(1,0) + m(0,1);
+&nbsp;
+    //method 2
+    m << 3,-1,
+        2.5,-1.5;
+    cout << "m=n" << m << endl;
+#pragma endregion
+&nbsp;
+#pragma region Comma_initializer
+    cout << "*******************Initialization****************"<< endl;
+&nbsp;
+    int rows=5;
+    int cols=5;
+    MatrixXf m1(rows,cols);
+    m1 << ( Matrix3f() << 1,2,3,4,5,6,7,8,9 ).finished(),
+        MatrixXf::Zero(3,cols-3),
+        MatrixXf::Zero(rows-3,3),
+        MatrixXf::Identity(rows-3,cols-3);
+    cout << "m1=n" << m1 << endl;
+#pragma endregion
+&nbsp;
+#pragma region Runtime_info
+    cout << "*******************Runtime Info****************" << endl;
+&nbsp;
+    MatrixXf m2(5,4);
+    m2 << MatrixXf::Identity(5,4);
+    cout << "m2=n" << m2 << endl;
+&nbsp;
+    MatrixXf m3;
+    m3=m1*m2;
+    cout << "m3.rows()=" << m3.rows() << "  ;  "
+&nbsp;            << "m3.cols()=" << m3.cols() << endl;
+    cout << "m3=n" << m3 << endl;
+#pragma endregion
+&nbsp;
+#pragma region Resizing
+    cout << "*******************Resizing****************"<< endl;
+
+    //1D-resize
+    v1.resize(4);
+    cout << "Recover v1 to 4*1 array : v1=n" << v1 << endl;
+
+    //2D-resize
+    m.resize(2,3);
+    m.resize(Eigen::NoChange, 3);
+    m.resizeLike(m2);
+    m.resize(2,2);
+#pragma endregion
+&nbsp;
+#pragma region Coeff_access
+    cout << "*******************Coefficient access****************" << endl;
+
+    float tx=v1(1);
+    tx=m1(1,1);
+    cout << endl;
+#pragma endregion
+&nbsp;
+#pragma  region Predefined_matrix
+    cout << "*******************Predefined Matrix****************" << endl;
+
+    //1D-object
+    typedef  Matrix3f   FixedXD;
+    FixedXD x;
+
+    x=FixedXD::Zero();
+    x=FixedXD::Ones();
+    x=FixedXD::Constant(tx);//tx is the value
+    x=FixedXD::Random();
+    cout << "x=n" << x << endl;
+
+    typedef ArrayXf Dynamic1D;
+    //或者 typedef VectorXf Dynamic1D
+    int size=3;
+    Dynamic1D xx;
+    xx=Dynamic1D::Zero(size);
+    xx=Dynamic1D::Ones(size);
+    xx=Dynamic1D::Constant(size,tx);
+    xx=Dynamic1D::Random(size);
+    cout << "xx=n" << x << endl;
+
+    //2D-object
+    typedef MatrixXf Dynamic2D;
+    Dynamic2D y;
+    y=Dynamic2D::Zero(rows,cols);
+    y=Dynamic2D::Ones(rows,cols);
+    y=Dynamic2D::Constant(rows,cols,tx);//tx is the value
+    y=Dynamic2D::Random(rows,cols);
+
+#pragma endregion
+&nbsp;
+#pragma region Arithmetic_Operators
+    cout << "******************* Arithmetic_Operators****************" << endl;
+
+    //add &amp; sub
+    MatrixXf m4(5,4);
+    MatrixXf m5;
+    m4=m2+m3;
+    m3-=m2;
+
+    //product
+    m3=m1*m2;
+
+    //transposition
+    m5=m4.transpose();
+    //m5=m.adjoint();//伴随矩阵
+
+    //dot product
+    double xtt;
+    cout << "v1=n" << v1 << endl;
+    v2.resize(4);
+    v2 << VectorXd::Ones(4);
+    cout << "v2=n" << v2 << endl;
+
+    cout << "*************dot product*************" << endl;
+    xtt=v1.dot(v2);
+    cout << "v1.*v2=" << xtt << endl;
+
+    //vector norm
+
+    cout << "*************matrix norm*************" << endl;
+    xtt=v1.norm();
+    cout << "norm of v1=" << xtt << endl;
+    xtt=v1.squaredNorm();
+    cout << "SquareNorm of v1=" << xtt << endl;
+#pragma endregion
+cout << endl;
+}
+</pre>
+
+
+
+<p>去哪里更深入学习？</p>
+<p>Please refer to <a href="http://eigen.tuxfamily.org/dox-2.0/classEigen_1_1MatrixBase.html" target="_blank" rel="external">Eigen中的类及函数</a>、<a href="http://eigen.tuxfamily.org/dox-2.0/TutorialCore.html" target="_blank" rel="external">Eigen的官方教程</a>，和一些<a href="http://eigen.tuxfamily.org/dox-2.0/functions.html" target="_blank" rel="external">教程上的相关内容</a>。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;来自：&lt;a href=&quot;http://blog.csdn.net/abcjennifer/article/details/7781936&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://blog.csdn.net/abcjennifer/art
+    
+    </summary>
+    
+      <category term="research" scheme="http://yoursite.com/categories/research/"/>
+    
+    
+      <category term="矩阵" scheme="http://yoursite.com/tags/%E7%9F%A9%E9%98%B5/"/>
+    
+      <category term="Eigen" scheme="http://yoursite.com/tags/Eigen/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【整理】如何给WordPress插入背景音乐</title>
+    <link href="http://yoursite.com/2012/11/08/insert-music-for-wordpress/"/>
+    <id>http://yoursite.com/2012/11/08/insert-music-for-wordpress/</id>
+    <published>2012-11-08T03:46:00.000Z</published>
+    <updated>2014-07-24T15:56:27.484Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="1-无插件的方法"><a href="#1-无插件的方法" class="headerlink" title="1. 无插件的方法"></a>1. 无插件的方法</h1><p>来自：<a href="http://shinian.biz/archives/66.html" target="_blank" rel="external">http://shinian.biz/archives/66.html</a></p>
+<p>如果你想在文章中插入一段flash或者音乐，你可能首先想到的就是寻找插件，不错，是有很多插件可是实现，如Audio Player等。但是怎么用纯代码实现这个功能呢？此举也可避免插件太多影响页面加载速度。其实也很简单，下面和大家分享一下：</p>
+<p><div id="_mcePaste">插入Flash：</div></p>
+<p><div>在编辑文章状态，切换到HTML模式，调用以下代码：</div></p>
+<p><div>&lt;embed play=”true” quality=”high” height=”500″ width=”500″ src=”FLASH地址” pluginspage=”<a href="http://www.macromedia.com/go/getflashplayer”&amp;gt" target="_blank" rel="external">http://www.macromedia.com/go/getflashplayer”&amp;gt</a>;</div></p>
+<p><div id="_mcePaste">&lt;/embed&gt;</div></p>
+<p><div>将“FLASH地址”换成你要插入的FLASH地址（一般后缀为swf或flv），完成后即可回到可视化编辑继续写内容（可视化编辑时也可采用伸拉的方式对FLASH的宽度和高度进行调整）。</div></p>
+<p><div>插入音乐：</div></p>
+<p><div>&lt;embed loop=”false” autostart=”false” controls=”ImageWindow” maxwidth=”500″ src=”音乐地址“&gt;<code>&amp;lt;/embed&amp;gt;</code></div></p>
+<p><div><code>下面这是豆瓣的一款播放器：</code></div><br><span style="color: #ff9900;"><code>&amp;lt;embed src=&quot;http://www.douban.com/swf/player.swf?url=MP3文件URL&amp;amp;amp;autoplay=0&quot; type=&quot;application/x-shockwave-flash&quot; wmode=&quot;transparent&quot; allowscriptaccess=&quot;always&quot; width=&quot;262&quot; height=&quot;23&quot;&amp;gt;</code></span></p>
+<p><div><code>相关参数使用说明：</code></div><br>src：媒体文件地址。</p>
+<p>autostart：是否自动播放，true为自动，false为手动。</p>
+<p>loop：是否循环，true为循环，false只播放一次，也可直接设置数字，2表示播放2次，同理。</p>
+<p>width：播放界面的宽度，一般在300到500之间最好。</p>
+<p>height：播放界面的高度。根据视频、音频来定（音频时此值不必设太大）。</p>
+<p>hidden：是否隐藏播放界面，true为不可见，false表示可见。</p>
+<p>quality=high表示以高档画质播放。</p>
+<p>在“外观” “小工具”中，给右侧栏添加一个文本小工具，填上上面的<span style="color: #333333; font-style: normal; line-height: 24px;">代码即可。</span></p>
+<h1 id="2-有插件的方法"><a href="#2-有插件的方法" class="headerlink" title="2. 有插件的方法"></a>2. 有插件的方法</h1><p>在网上下载一个音乐flash播放器，swf格式，上传到“媒体库”，获得并复制它的链接地址</p>
+<p><a href="http://charlie.ap01.aws.af.cm/wp-content/uploads/2012/11/QQ截图20121108192410.png" target="_blank" rel="external"><img src="http://charlie.ap01.aws.af.cm/wp-content/uploads/2012/11/QQ截图20121108192410-300x256.png" alt="" title="QQ截图20121108192410"></a></p>
+<p>将以上代码中的swf地址改为刚刚上传的swf地址即可</p>
+<p>播放器的下载地址可以参考这里：<a href="http://ons.me/69.html" target="_blank" rel="external">http://ons.me/69.html</a></p>
+<h1 id="3-背景音乐的效果"><a href="#3-背景音乐的效果" class="headerlink" title="3. 背景音乐的效果"></a>3. 背景音乐的效果</h1><p>以上操作方法有一个问题：进入首页之后再点击文章链接时音乐又会从头开始播放，就好比新浪博客、百度空间等首页的音乐一般不能全局播放，不像qq空间那样真正是背景音乐。那么如何在WordPress中实现真正的背景音乐呢？</p>
+<p>在完成了以上操作之后，再安装这一插件即可：<a href="http://software.resplace.net/WordPress/AAPL/" target="_blank" rel="external"><strong>Advanced AJAX Page Loader</strong></a></p>
+<h1 id="4-题外话"><a href="#4-题外话" class="headerlink" title="4. 题外话"></a>4. 题外话</h1><p>上面代码中的“mp3URL”可以是百度等搜索引擎中搜到的MP3音乐，当然也可以是自己向WordPress媒体库中添加MP3，然后再获得它的链接地址。这一链接地址比在搜索引擎中搜到的音乐链接稳定、快速，而且还可以当作外链下载，甚至可以给qq空间里面添加背景音乐（qq绿钻用户请无视）。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;1-无插件的方法&quot;&gt;&lt;a href=&quot;#1-无插件的方法&quot; class=&quot;headerlink&quot; title=&quot;1. 无插件的方法&quot;&gt;&lt;/a&gt;1. 无插件的方法&lt;/h1&gt;&lt;p&gt;来自：&lt;a href=&quot;http://shinian.biz/archives/66.h
+    
+    </summary>
+    
+      <category term="skills" scheme="http://yoursite.com/categories/skills/"/>
+    
+    
+      <category term="WordPress" scheme="http://yoursite.com/tags/WordPress/"/>
+    
+  </entry>
+  
+</feed>
